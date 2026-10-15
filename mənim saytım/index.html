@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Art Studio - Onlayn Rezervasiya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #faf5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #c2185b;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        /* Haqqında Bölməsi */
+        .about-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .about-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e91e63;
+            margin: 0 auto;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Xidmətlər Kartları */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #222;
+            margin: 15px 0;
+        }
+
+        /* Əl İşləri Qalereyası (Portfolio) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 220px;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Düymə Stili */
+        .btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: #c2185b;
+        }
+
+        /* Rezervasiya Formu */
+        .booking-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .booking-section .btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            background-color: #25d366; /* WhatsApp Yaşılı */
+        }
+        .booking-section .btn:hover {
+            background-color: #1eb954;
+        }
+
+        /* Əlaqə və İş Saatları */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .info-card h3 {
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+        footer a {
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nail Art Studio</h1>
+        <p>Zərif və qüsursuz dırnaq dizaynları üçün onlayn qeydiyyat</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Haqqında Bölməsi -->
+        <div class="about-section">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400" alt="Usta" class="about-img">
+            <div class="about-text">
+                <h2>Usta Haqqında</h2>
+                <p>Salam! Mən peşəkar dırnaq ustasıyam. 5 ildən artıq təcrübəmlə müştərilərimə keyfiyyətli, gigiyenik və müasir dırnaq dizayn xidmətləri təqdim edirəm. Bütün alətlər sterilizasiya olunur və ən keyfiyyətli materiallardan istifadə edilir.</p>
+            </div>
+        </div>
+
+        <!-- Əl İşləri Qalereyası -->
+        <h2>Əl İşlərimiz (Qalereya)</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500" alt="Nail Art 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=500" alt="Nail Art 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500" alt="Nail Art 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Nail Art 4">
+            </div>
+        </div>
+
+        <!-- Xidmətlər -->
+        <h2>Xidmətlər və Qiymətlər</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Klassik Manikür</h3>
+                <p>Təbii dırnaqların qulluğu və səliqəli formaya salınması.</p>
+                <div class="price">15 AZN</div>
+                <button class="btn" onclick="selectService('Klassik Manikür - 15 AZN')">Seç</button>
+            </div>
+            <div class="service-card">
+                <h3>Gel-Lak (Şellak)</h3>
+                <p>Uzunmüddətli və parlaq rəngli gel-lak örtüyü.</p>
+                <div class="price">25 AZN</div>
+                <button class="btn" onclick="selectService('Gel-Lak - 25 AZN')">Seç</button>
+            </div>
+            <div class="service-card">
+                <h3>Dırnaq Qaynağı və Dizayn</h3>
+                <p>İstənilən uzunluqda qaynaq və fərdi zövqə uyğun dizayn.</p>
+                <div class="price">40 AZN</div>
+                <button class="btn" onclick="selectService('Dırnaq Qaynağı - 40 AZN')">Seç</button>
+            </div>
+        </div>
+
+        <!-- Onlayn Qeydiyyat -->
+        <h2>Onlayn Qeydiyyat</h2>
+        <div class="booking-section">
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="name">Adınız və Soyadınız:</label>
+                    <input type="text" id="name" required placeholder="Məsələn: Leyla Əliyeva">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Əlaqə Nömrəniz:</label>
+                    <input type="tel" id="phone" required placeholder="+994 50 000 00 00">
+                </div>
+                <div class="form-group">
+                    <label for="serviceSelect">Xidmət Seçin:</label>
+                    <select id="serviceSelect" required>
+                        <option value="">Xidməti seçin...</option>
+                        <option value="Klassik Manikür - 15 AZN">Klassik Manikür - 15 AZN</option>
+                        <option value="Gel-Lak - 25 AZN">Gel-Lak - 25 AZN</option>
+                        <option value="Dırnaq Qaynağı - 40 AZN">Dırnaq Qaynağı - 40 AZN</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Tarix və Saat:</label>
+                    <input type="datetime-local" id="date" required>
+                </div>
+                <button type="submit" class="btn">WhatsApp ilə Rezerv Et</button>
+            </form>
+        </div>
+
+        <!-- Əlaqə və İş Saatları -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⏰ İş Saatları</h3>
+                <p><strong>Bazar ertəsi - Şənbə:</strong> 08:00 - 20:00</p>
+                <p><strong>Bazar:</strong> 09:00-20:00</p>
+            </div>
+            <div class="info-card">
+                <h3>📍 Ünvan və Əlaqə</h3>
+                <p><strong>Ünvan:</strong> Bakı şəhəri, Badamdar qəsəbəsi</p>
+                <p><strong>Telefon:</strong> +994 50 000 00 00</p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com" target="_blank">@nail_studio</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Nail Art Studio. Bakı, Azərbaycan.
+    </footer>
+
+    <script>
+        function selectService(serviceName) {
+            document.getElementById('serviceSelect').value = serviceName;
+            document.querySelector('.booking-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            // Sevgilinizin WhatsApp nömrəsini bura daxil edin
+            const whatsappNumber = "+994555520443"; 
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('serviceSelect').value;
+            const date = document.getElementById('date').value.replace('T', ' ');
+
+            const message = `Salam! Mən saytdan rezervasiya etmək istəyirəm.%0A%0A` +
+                            `👤 *Ad Soyad:* ${encodeURIComponent(name)}%0A` +
+                            `📞 *Əlaqə Nömrəsi:* ${encodeURIComponent(phone)}%0A` +
+                            `💅 *Xidmət:* ${encodeURIComponent(service)}%0A` +
+                            `📅 *Tarix və Saat:* ${encodeURIComponent(date)}`;
+
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
